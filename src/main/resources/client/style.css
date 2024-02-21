@@ -1,0 +1,12 @@
+.grid-container {
+  -fx-padding: 10;
+}
+
+.number-button {
+  -fx-font-size: 24;
+  -fx-background-color: #d0d0d0; /* Light gray */
+  -fx-text-fill: black;
+  -fx-padding: 0;
+}
+
+/* You can add more styles for hover, click effects, etc. */
