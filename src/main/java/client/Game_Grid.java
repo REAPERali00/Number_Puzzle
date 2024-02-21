@@ -1,7 +1,8 @@
 package client;
 
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.layout.GridPane;
@@ -9,9 +10,12 @@ import javafx.scene.layout.GridPane;
 public class Game_Grid {
     @FXML
     private GridPane buttonsPane;
+    private ArrayList<Button> inventory = new ArrayList<>();
+    private int active;
 
     @FXML
     private void initialize() {
+
         fillGrid();
     }
 
@@ -29,17 +33,36 @@ public class Game_Grid {
         // Define the button click action
         button.setOnAction(event -> {
             System.out.println(button.getText());
+            setActive(Integer.valueOf(buttonsPane.getRowIndex(button) * 3 + buttonsPane.getColumnIndex(button)));
+
         });
 
         return button;
     }
 
+    public void setActive(int ind) {
+        Button current = inventory.get(ind);
+        Button activeButton = inventory.get(active);
+
+        String temp = current.getText();
+        current.setText(activeButton.getText());
+        activeButton.setText(temp);
+        activeButton.getStyleClass().remove("special-button");
+        current.getStyleClass().add("special-button");
+        active = ind;
+    }
+
     public void fillGrid() {
         int dim = 3; // Dimension of the grid
+        Button button;
         for (int i = 0; i < dim * dim; i++) {
             // Create a button and add it to the grid
-            buttonsPane.add(createButton(i), i % dim, i / dim);
+            button = createButton(i);
+            buttonsPane.add(button, i % dim, i / dim);
+            inventory.add(button);
         }
+        active = 0;
+        inventory.get(active).getStyleClass().add("special-button");
         buttonsPane.setHgap(5);
         buttonsPane.setVgap(5);
 
