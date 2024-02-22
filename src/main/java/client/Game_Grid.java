@@ -53,7 +53,7 @@ public class Game_Grid {
     public boolean checkValidMove(int ind) {
         int possibility = Math.abs(active - ind);
 
-        if (possibility > dim || ((ind + 1) % dim == 0 && active == ind + 1))
+        if (possibility > dim || ((active + 1) % dim == 0 && active == ind - 1))
             return false;
         if (possibility == 1 || possibility % dim == 0)
             return true;

@@ -17,7 +17,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Testing Java Fx");
-        Scene page = new Scene(loadFXML("puzzle"), 500, 500);
+        Scene page = new Scene(loadFXML("puzzle"));
         stage.setScene(page);
         stage.show();
     }
