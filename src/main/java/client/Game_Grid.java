@@ -23,6 +23,7 @@ public class Game_Grid {
     private void initialize() {
         dim = 3;
         fillGrid();
+        randomize();
     }
 
     private Button createButton(int number) {
@@ -101,6 +102,20 @@ public class Game_Grid {
 
         // Play the vibration animation
         sequence.play();
+    }
+
+    public void randomize() {
+        int length = inventory.size(), index1, index2;
+        String temp;
+        for (int i = 0; i < 10; i++) {
+            index1 = (int) (Math.random() * (length - 1) + 1);
+            index2 = (int) (Math.random() * (length - 1) + 1);
+            if (index1 != active && index2 != active) {
+                temp = inventory.get(index2).getText();
+                inventory.get(index2).setText(inventory.get(index1).getText());
+                inventory.get(index1).setText(temp);
+            }
+        }
     }
 
     public void fillGrid() {
