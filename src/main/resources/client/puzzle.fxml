@@ -21,6 +21,7 @@
       <columnConstraints>
         <ColumnConstraints />
         <ColumnConstraints />
+        <ColumnConstraints />
       </columnConstraints>
       <rowConstraints>
         <RowConstraints />
@@ -29,5 +30,4 @@
       </rowConstraints>
     </GridPane>
   </children>
-
 </VBox>

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -42,10 +43,11 @@ public class Game_Grid {
             int ind = GridPane.getRowIndex(button) * dim + GridPane.getColumnIndex(button);
             if (!checkValidMove(ind)) {
                 errorCss("button-wrong", button);
-            } else {
-                setActive(Integer.valueOf(ind));
+                return;
             }
-
+            setActive(ind);
+            if (markCorrect())
+                System.out.println("Congrats! you won!");
         });
 
         return button;
@@ -65,7 +67,6 @@ public class Game_Grid {
     public void setActive(int ind) {
         Button current = inventory.get(ind);
         Button activeButton = inventory.get(active);
-
         String temp = current.getText();
         current.setText(activeButton.getText());
         activeButton.setText(temp);
@@ -102,6 +103,28 @@ public class Game_Grid {
 
         // Play the vibration animation
         sequence.play();
+    }
+
+    public boolean markCorrect() {
+        Button button;
+        int count = 0;
+        for (int i = 0; i < inventory.size(); i++) {
+            button = inventory.get(i);
+            String correctIndex = Integer.toString(i + 1);
+
+            // Clear previous "correct" marking before applying new logic
+            button.getStyleClass().removeIf(className -> "button-correct".equals(className));
+
+            if (button.getText().equals(correctIndex)) {
+                // Safely add "button-correct" only if it's not already present
+                if (!button.getStyleClass().contains("button-correct")) {
+                    button.getStyleClass().add("button-correct");
+                }
+                count++;
+            }
+        }
+
+        return count == inventory.size();
     }
 
     public void randomize() {

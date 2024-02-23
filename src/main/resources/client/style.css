@@ -24,10 +24,15 @@
   -fx-background-color: #0a399c85;
 }
 .special-button {
-  -fx-background-color: #000000;
+  -fx-background-color: #000000 !important;
   /* -fx-text-fill: #d0d0d0; */
 }
 .button-wrong {
-  -fx-background-color: red;
+  -fx-background-color: red !important;
   -fx-text-fill: white;
+}
+
+.button-correct {
+  -fx-background-color: green;
+  -fx-text-fill: black;
 }
