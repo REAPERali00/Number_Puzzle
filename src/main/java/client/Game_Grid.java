@@ -21,7 +21,7 @@ public class Game_Grid {
 
     @FXML
     private void initialize() {
-        dim = 3;
+        dim = 2;
         fillGrid();
         randomize();
     }
@@ -123,7 +123,7 @@ public class Game_Grid {
             }
         }
 
-        return count == inventory.size();
+        return count == inventory.size() - 1;
     }
 
     public void randomize() {
