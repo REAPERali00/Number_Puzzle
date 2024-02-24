@@ -8,7 +8,9 @@ import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
 
@@ -21,7 +23,7 @@ public class Game_Grid {
 
     @FXML
     private void initialize() {
-        dim = 2;
+        dim = 3;
         fillGrid();
         randomize();
     }
@@ -45,8 +47,10 @@ public class Game_Grid {
                 return;
             }
             setActive(ind);
-            if (markCorrect())
-                System.out.println("Congrats! you won!");
+            if (markCorrect()) {
+                showWinningMessage();
+                reset();
+            }
         });
 
         return button;
@@ -126,6 +130,15 @@ public class Game_Grid {
         return count == inventory.size() - 1;
     }
 
+    public void showWinningMessage() {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Congratulations");
+        alert.setHeaderText(null); // You can set header text or use null to not have a header
+        alert.setContentText("You've won the game!");
+
+        alert.showAndWait(); // Display the alert and wait for the user to close it
+    }
+
     public void randomize() {
         int length = inventory.size(), index1, index2;
         String temp;
@@ -155,4 +168,10 @@ public class Game_Grid {
 
     }
 
+    public void reset() {
+        buttonsPane.getChildren().clear();
+        inventory.clear();
+        fillGrid();
+        randomize();
+    }
 }
