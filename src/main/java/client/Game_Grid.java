@@ -20,6 +20,8 @@ public class Game_Grid {
     private ArrayList<Button> inventory = new ArrayList<>();
     private int active;
     private int dim;
+    @FXML
+    private Game_Timer timerController;
 
     @FXML
     private void initialize() {
@@ -42,10 +44,10 @@ public class Game_Grid {
         // Define the button click action
         button.setOnAction(event -> {
             int ind = GridPane.getRowIndex(button) * dim + GridPane.getColumnIndex(button);
-            if (!checkValidMove(ind)) {
-                errorCss("button-wrong", button);
-                return;
-            }
+            // if (!checkValidMove(ind)) {
+            // errorCss("button-wrong", button);
+            // return;
+            // }
             setActive(ind);
             if (markCorrect()) {
                 showWinningMessage();
@@ -171,8 +173,10 @@ public class Game_Grid {
     public void reset() {
         buttonsPane.getChildren().clear();
         inventory.clear();
+        timerController.stopTimer();
         fillGrid();
         randomize();
+        timerController.startTimer();
     }
 
 }
