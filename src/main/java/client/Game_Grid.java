@@ -20,6 +20,7 @@ public class Game_Grid {
     private ArrayList<Button> inventory = new ArrayList<>();
     private int active;
     private int dim;
+
     @FXML
     private Game_Timer timerController;
 
@@ -133,6 +134,7 @@ public class Game_Grid {
     }
 
     public void showWinningMessage() {
+        timerController.stopTimer();
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Congratulations");
         alert.setHeaderText(null); // You can set header text or use null to not have a header
@@ -173,7 +175,6 @@ public class Game_Grid {
     public void reset() {
         buttonsPane.getChildren().clear();
         inventory.clear();
-        timerController.stopTimer();
         fillGrid();
         randomize();
         timerController.startTimer();
