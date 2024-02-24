@@ -16,6 +16,7 @@
         <Font name="JetBrainsMono NF Regular" size="36.0" />
       </font>
     </Label>
+    <fx:include source="timer.fxml" />
     <GridPane fx:id="buttonsPane" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
       minHeight="-Infinity" minWidth="-Infinity" prefHeight="407.0" prefWidth="393.0">
       <columnConstraints>
