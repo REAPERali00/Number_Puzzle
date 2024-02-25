@@ -35,7 +35,12 @@ public class Game_Timer {
     }
 
     public String getTime() {
-        return String.format("Time: %d", seconds);
+
+        int hour = seconds / 3600;
+        int min = (seconds % 3600) / 60;
+        int sec = seconds % 60;
+
+        return String.format("%02d:%02d:%02d", hour, min, sec);
     }
 
     public void stopTimer() {
