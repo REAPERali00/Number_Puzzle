@@ -45,10 +45,10 @@ public class Game_Grid {
         // Define the button click action
         button.setOnAction(event -> {
             int ind = GridPane.getRowIndex(button) * dim + GridPane.getColumnIndex(button);
-            // if (!checkValidMove(ind)) {
-            // errorCss("button-wrong", button);
-            // return;
-            // }
+            if (!checkValidMove(ind)) {
+                errorCss("button-wrong", button);
+                return;
+            }
             setActive(ind);
             if (markCorrect()) {
                 showWinningMessage();
@@ -144,17 +144,29 @@ public class Game_Grid {
     }
 
     public void randomize() {
-        int length = inventory.size(), index1, index2;
-        String temp;
-        for (int i = 0; i < 10; i++) {
-            index1 = (int) (Math.random() * (length - 1) + 1);
-            index2 = (int) (Math.random() * (length - 1) + 1);
-            if (index1 != active && index2 != active) {
-                temp = inventory.get(index2).getText();
-                inventory.get(index2).setText(inventory.get(index1).getText());
-                inventory.get(index1).setText(temp);
-            }
+        int shuffleCount = 100;
+        for (int i = 0; i < shuffleCount; i++) {
+            ArrayList<Integer> validMoves = findValidMoves(active);
+            int moveToIndex = validMoves.get((int) (Math.random() * validMoves.size()));
+            setActive(moveToIndex);
         }
+    }
+
+    public ArrayList<Integer> findValidMoves(int activeIndex) {
+        ArrayList<Integer> validMoves = new ArrayList<>();
+        int row = activeIndex / dim;
+        int col = activeIndex % dim;
+
+        if (row > 0)
+            validMoves.add(activeIndex - dim); // Move up
+        if (row < dim - 1)
+            validMoves.add(activeIndex + dim); // Move down
+        if (col > 0)
+            validMoves.add(activeIndex - 1); // Move left
+        if (col < dim - 1)
+            validMoves.add(activeIndex + 1); // Move right
+
+        return validMoves;
     }
 
     public void fillGrid() {
