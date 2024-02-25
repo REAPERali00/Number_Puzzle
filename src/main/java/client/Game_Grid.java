@@ -21,7 +21,7 @@ public class Game_Grid {
 
     @FXML
     private void initialize() {
-        dim = 2;
+        dim = 3;
         fillGrid();
         randomize();
     }
