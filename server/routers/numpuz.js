@@ -1,13 +1,14 @@
 const express = require("express");
 const router = express.Router();
-const { writeRank } = require("../controller/ranking");
+const { writeRank, readRank } = require("../controller/ranking");
 
 router.get("/", (req, res) => {
   res.send("Hi! welcome to num puz server!");
 });
 
 router.get("/rankings", (req, res) => {
-  res.send("Testing router");
+  const ranking = readRank();
+  res.json(ranking);
 });
 
 router.post("/submitRank", (req, res) => {
