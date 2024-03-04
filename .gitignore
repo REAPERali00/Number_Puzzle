@@ -93,3 +93,4 @@ $RECYCLE.BIN/
 *.lnk
 
 server/controller/ranks.json
+*.env
