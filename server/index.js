@@ -5,7 +5,6 @@ const app = express();
 
 app.use(express.json());
 app.use(cors());
-
 const NumRouter = require("./routers/numpuz");
 const port = process.env.PORT || 3000;
 

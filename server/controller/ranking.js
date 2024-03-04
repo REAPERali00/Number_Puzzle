@@ -1,7 +1,8 @@
 const { json } = require("express");
 const fs = require("fs");
 const path = require("path");
-const rankPath = path.join("./controller", "ranks.json");
+const rankPath = path.join(__dirname, "ranks.json");
+
 function readRank() {
   try {
     const data = fs.readFileSync(rankPath, "utf8");
