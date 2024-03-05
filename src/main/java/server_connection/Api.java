@@ -1,24 +1,31 @@
 package server_connection;
 
-import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.lang.reflect.Type;
+import java.util.List;
 
-import okhttp3.*;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import Models.Ranking;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class Api implements ConfigApi {
     private final OkHttpClient client = new OkHttpClient();
+    private Gson gson = new Gson();
 
     public Api() {
 
     }
 
-    public String getRanks() throws IOException {
+    public List<Ranking> getRanks() throws IOException {
         Request request = new Request.Builder().url(URL_PATH + RANKS).build();
         try (Response response = client.newCall(request).execute()) {
-            return response.body().string();
+            Type listType = new TypeToken<List<Ranking>>() {
+            }.getType();
+            return gson.fromJson(response.body().string(), listType);
         }
     }
 }
