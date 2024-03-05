@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
+    stylesheets="@style.css">
+    <center>
+        <VBox spacing="10" alignment="CENTER">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20" />
+            </padding>
+            <TableView fx:id="rankTableView" prefHeight="200" prefWidth="400">
+                <columns>
+                    <TableColumn fx:id="rankColumn" text="Rank" prefWidth="100">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="rank" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="usernameColumn" text="Username" prefWidth="150">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="username" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="scoreColumn" text="Score" prefWidth="150">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="score" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

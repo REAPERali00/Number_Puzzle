@@ -1,3 +1,5 @@
+/* Root of the file  */
+
 .root {
   -fx-background-color: linear-gradient(
     from 0% 0% to 100% 100%,
@@ -10,6 +12,7 @@
   -fx-padding: 10;
 }
 
+/* Num puz game styling  */
 .number-button {
   -fx-font-size: 24;
   -fx-background-color: #76b7f9; /* Light gray */
@@ -43,4 +46,19 @@
 .button-correct {
   -fx-background-color: green;
   -fx-text-fill: black;
+}
+
+/* Creating the ranking styles  */
+.table-view {
+  -fx-table-cell-border-color: transparent;
+  -fx-selection-bar: #b0e0e6; /* PowderBlue selection */
+  -fx-selection-bar-non-focused: #b0e0e6;
+}
+
+.table-view .column-header-background {
+  -fx-background-color: #87ceeb; /* SkyBlue header */
+}
+
+.table-column-cell {
+  -fx-alignment: CENTER;
 }
