@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-    stylesheets="@style.css">
+    stylesheets="@style.css" fx:controller="client.RankingDisplay">
     <center>
         <VBox spacing="10" alignment="CENTER">
             <padding>
@@ -26,9 +26,9 @@
                             <PropertyValueFactory property="username" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="scoreColumn" text="Score" prefWidth="150">
+                    <TableColumn fx:id="timeColumn" text="Time" prefWidth="150">
                         <cellValueFactory>
-                            <PropertyValueFactory property="score" />
+                            <PropertyValueFactory property="time" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>

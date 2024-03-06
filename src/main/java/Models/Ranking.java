@@ -1,5 +1,8 @@
 package Models;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class Ranking {
     private String name;
     private String time;
@@ -23,6 +26,14 @@ public class Ranking {
     public Ranking(String name, String time) {
         this.name = name;
         this.time = time;
+    }
+
+    public StringProperty nameProperty() {
+        return new SimpleStringProperty(name);
+    }
+
+    public StringProperty timeProperty() {
+        return new SimpleStringProperty(time);
     }
 
 }

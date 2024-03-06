@@ -17,7 +17,8 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Num Puz");
-        Scene page = new Scene(loadFXML("puzzle"));
+        // Scene page = new Scene(loadFXML("puzzle"));
+        Scene page = new Scene(loadFXML("ranking"));
         stage.setScene(page);
         stage.show();
     }
