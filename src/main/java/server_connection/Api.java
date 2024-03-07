@@ -23,6 +23,11 @@ public class Api implements ConfigApi {
     public List<Ranking> getRanks() throws IOException {
         Request request = new Request.Builder().url(URL_PATH + RANKS).build();
         try (Response response = client.newCall(request).execute()) {
+            String responseBody = response.body().string();
+            System.out.println(responseBody);
+            if (response.body() == null)
+                throw new IOException("Response body is null");
+
             Type listType = new TypeToken<List<Ranking>>() {
             }.getType();
             return gson.fromJson(response.body().string(), listType);

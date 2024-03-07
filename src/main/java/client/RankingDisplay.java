@@ -1,14 +1,17 @@
 package client;
 
+import java.io.IOException;
 import java.util.Comparator;
 
 import Models.Ranking;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import server_connection.Api;
 
 public class RankingDisplay {
     @FXML
@@ -28,8 +31,8 @@ public class RankingDisplay {
         // Initialize your table columns here
         // rankColumn.setCellValueFactory(cellData ->
         // cellData.getValue().rankProperty());
-        usernameColumn.setCellValueFactory(cellData -> cellData.getValue().nameProperty());
-        timeColumn.setCellValueFactory(cellData -> cellData.getValue().timeProperty());
+        usernameColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getName()));
+        timeColumn.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTime()));
         rankColumn.setCellFactory(column -> new TableCell<Ranking, Integer>() {
             @Override
             protected void updateItem(Integer item, boolean empty) {
@@ -55,5 +58,17 @@ public class RankingDisplay {
         data.add(new Ranking("User4", "00:01:00"));
         // Add more data as needed
         return data;
+    }
+
+    private ObservableList<Ranking> getServerRanks() {
+        Api serverConnection = new Api();
+        try {
+            return FXCollections.observableArrayList(serverConnection.getRanks());
+        } catch (IOException e) {
+            System.out.println("Could not fetch data from the server.");
+            e.printStackTrace();
+        }
+
+        return FXCollections.observableArrayList();
     }
 }
