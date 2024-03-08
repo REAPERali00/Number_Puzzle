@@ -7,13 +7,17 @@ import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import server_connection.Api;
 
@@ -204,9 +208,21 @@ public class Game_Grid {
         timerController.startTimer();
     }
 
-    public void postData() {
+    private void postData() {
         Api api = new Api();
         api.postRanks(rank);
     }
 
+    @FXML
+    private void showRankings() {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("ranking.fxml")); // Make sure the path is correct
+            Scene scene = new Scene(root);
+            Stage stage = (Stage) buttonsPane.getScene().getWindow(); // buttonsPane is from your puzzle.fxml
+            stage.setScene(scene);
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
