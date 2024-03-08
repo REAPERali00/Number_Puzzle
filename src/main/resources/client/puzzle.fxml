@@ -11,7 +11,7 @@
   xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
   fx:controller="client.Game_Grid">
   <children>
-    <Label alignment="CENTER" style="-fx-padding: 20;" stylesheets="@style.css" text="Num Puz">
+    <Label alignment="CENTER" style="-fx-padding: 20;" fx:id="welcomeLabel" text="Num Puz">
       <font>
         <Font name="JetBrainsMono NF Regular" size="36.0" />
       </font>

@@ -2,6 +2,7 @@ package client;
 
 import java.util.ArrayList;
 
+import Models.Ranking;
 import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
@@ -10,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
@@ -18,11 +20,18 @@ public class Game_Grid {
     @FXML
     private GridPane buttonsPane;
     private ArrayList<Button> inventory = new ArrayList<>();
+    @FXML
+    private Label welcomeLabel;
     private int active;
     private int dim;
-
+    private Ranking rank;
     @FXML
     private Game_Timer timerController;
+
+    public void setUserName(String name) {
+        welcomeLabel.setText(String.format("Welcome, %s!", name));
+        rank = new Ranking(name, "00:00:00");
+    }
 
     @FXML
     private void initialize() {
