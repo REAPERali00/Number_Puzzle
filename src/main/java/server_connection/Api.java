@@ -5,12 +5,10 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
-import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import Models.Ranking;
+import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -18,6 +16,7 @@ import okhttp3.Response;
 public class Api implements ConfigApi {
     private final OkHttpClient client = new OkHttpClient();
     private Gson gson = new Gson();
+    private MediaType MEDIA_TYPE_JSON = MediaType.get("application/json; charset=utf-8");
 
     public Api() {
 
@@ -36,5 +35,12 @@ public class Api implements ConfigApi {
             return gson.fromJson(responseBody, listType);
         }
 
+    }
+
+    public void postRanks(Ranking ranking) {
+        if (ranking == null) {
+            return;
+        }
+        String json = gson.toJson(ranking);
     }
 }
