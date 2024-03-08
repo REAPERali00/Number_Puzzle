@@ -11,6 +11,7 @@ import Models.Ranking;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 public class Api implements ConfigApi {
@@ -42,5 +43,23 @@ public class Api implements ConfigApi {
             return;
         }
         String json = gson.toJson(ranking);
+        RequestBody body = RequestBody.create(json, MEDIA_TYPE_JSON);
+
+        // Build the request
+        Request request = new Request.Builder()
+                .url(URL_PATH + POST_RANKS) // Replace with your actual URL
+                .post(body)
+                .build();
+
+        // Execute the request
+        try (Response response = client.newCall(request).execute()) {
+            if (!response.isSuccessful())
+                throw new IOException("Unexpected code " + response);
+
+            // Handle response
+            System.out.println(response.body().string());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -15,6 +15,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
 import javafx.util.Duration;
+import server_connection.Api;
 
 public class Game_Grid {
     @FXML
@@ -60,7 +61,9 @@ public class Game_Grid {
             }
             setActive(ind);
             if (markCorrect()) {
+                rank.setTime(timerController.getTime());
                 showWinningMessage();
+                postData();
                 reset();
             }
         });
@@ -199,6 +202,11 @@ public class Game_Grid {
         fillGrid();
         randomize();
         timerController.startTimer();
+    }
+
+    public void postData() {
+        Api api = new Api();
+        api.postRanks(rank);
     }
 
 }
