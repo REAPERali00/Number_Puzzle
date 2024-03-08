@@ -44,7 +44,7 @@ public class RankingDisplay {
                 }
             }
         });
-        ObservableList<Ranking> rankData = getRankData();
+        ObservableList<Ranking> rankData = getServerRanks();
         rankData.sort(Comparator.comparing(Ranking::getTime)); // Sort by time
         rankTableView.setItems(rankData);
 
@@ -62,13 +62,15 @@ public class RankingDisplay {
 
     private ObservableList<Ranking> getServerRanks() {
         Api serverConnection = new Api();
+        ObservableList<Ranking> ranks = null;
         try {
-            return FXCollections.observableArrayList(serverConnection.getRanks());
+            ranks = FXCollections.observableArrayList(serverConnection.getRanks());
+
         } catch (IOException e) {
             System.out.println("Could not fetch data from the server.");
             e.printStackTrace();
         }
 
-        return FXCollections.observableArrayList();
+        return ranks != null ? ranks : FXCollections.observableArrayList();
     }
 }

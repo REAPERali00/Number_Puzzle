@@ -1,8 +1,8 @@
 package Models;
 
 public class Ranking {
-    private String name;
-    private String time;
+    public String name;
+    public String time;
 
     public String getName() {
         return name;

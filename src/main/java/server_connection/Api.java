@@ -5,6 +5,9 @@ import java.lang.reflect.Type;
 import java.util.List;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.google.gson.JsonSyntaxException;
 import com.google.gson.reflect.TypeToken;
 
 import Models.Ranking;
@@ -27,10 +30,11 @@ public class Api implements ConfigApi {
             System.out.println(responseBody);
             if (response.body() == null)
                 throw new IOException("Response body is null");
-
             Type listType = new TypeToken<List<Ranking>>() {
             }.getType();
-            return gson.fromJson(response.body().string(), listType);
+
+            return gson.fromJson(responseBody, listType);
         }
+
     }
 }
