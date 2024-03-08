@@ -66,9 +66,10 @@ public class Game_Grid {
             setActive(ind);
             if (markCorrect()) {
                 rank.setTime(timerController.getTime());
-                showWinningMessage();
                 postData();
+                showWinningMessage();
                 reset();
+
             }
         });
 
@@ -150,7 +151,6 @@ public class Game_Grid {
     }
 
     public void showWinningMessage() {
-        timerController.stopTimer();
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Congratulations");
         alert.setHeaderText(null); // You can set header text or use null to not have a header
@@ -201,6 +201,7 @@ public class Game_Grid {
     }
 
     public void reset() {
+        timerController.stopTimer();
         buttonsPane.getChildren().clear();
         inventory.clear();
         fillGrid();

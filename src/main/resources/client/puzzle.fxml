@@ -32,5 +32,6 @@
         <RowConstraints />
       </rowConstraints>
     </GridPane>
+    <Button text="Rest" onAction="#reset" />
   </children>
 </VBox>
