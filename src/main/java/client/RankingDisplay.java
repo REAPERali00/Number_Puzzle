@@ -73,4 +73,9 @@ public class RankingDisplay {
 
         return ranks != null ? ranks : FXCollections.observableArrayList();
     }
+
+    @FXML
+    private void goBack() {
+        App.getInstance().loadView("puzzle.fxml");
+    }
 }

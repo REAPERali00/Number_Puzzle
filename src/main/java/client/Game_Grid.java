@@ -214,16 +214,22 @@ public class Game_Grid {
         api.postRanks(rank);
     }
 
+    // @FXML
+    // private void showRankings() {
+    // try {
+    // Parent root = FXMLLoader.load(getClass().getResource("ranking.fxml")); //
+    // Make sure the path is correct
+    // Scene scene = new Scene(root);
+    // Stage stage = (Stage) buttonsPane.getScene().getWindow(); // buttonsPane is
+    // from your puzzle.fxml
+    // stage.setScene(scene);
+    // stage.show();
+    // } catch (Exception e) {
+    // e.printStackTrace();
+    // }
+    // }
     @FXML
     private void showRankings() {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource("ranking.fxml")); // Make sure the path is correct
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) buttonsPane.getScene().getWindow(); // buttonsPane is from your puzzle.fxml
-            stage.setScene(scene);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        App.getInstance().loadView("ranking.fxml");
     }
 }

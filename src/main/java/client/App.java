@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
 
@@ -12,24 +13,36 @@ import java.io.IOException;
  */
 public class App extends Application {
 
-    private static Scene scene;
+    private StackPane rootLayout;
+    private static App instance;
 
     @Override
     public void start(Stage stage) throws IOException {
+        instance = this;
+        rootLayout = new StackPane();
         stage.setTitle("Num Puz");
         // Scene page = new Scene(loadFXML("puzzle"));
-        Scene page = new Scene(loadFXML("login"));
+        Scene page = new Scene(rootLayout, 400, 600);
         stage.setScene(page);
         stage.show();
+        loadView("login.fxml");
     }
 
-    static void setRoot(String fxml) throws IOException {
-        scene.setRoot(loadFXML(fxml));
+    public void loadView(String fxml) {
+        try {
+            Parent view = FXMLLoader.load(getClass().getResource(fxml));
+            // Set the CSS style sheet
+            view.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            // Apply the background style class to the new view if necessary
+            view.getStyleClass().add("background");
+            rootLayout.getChildren().setAll(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+    public static App getInstance() {
+        return instance;
     }
 
     public static void main(String[] args) {
