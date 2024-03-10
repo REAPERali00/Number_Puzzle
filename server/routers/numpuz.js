@@ -17,4 +17,10 @@ router.post("/submitRank", (req, res) => {
   res.json("ranking submitted successfully");
 });
 
+router.post("/submitRankDebug", (req, res) => {
+  const newRank = req.body;
+  writeRank(newRank);
+  const ranking = readRank();
+  res.json(ranking);
+});
 module.exports = router;
