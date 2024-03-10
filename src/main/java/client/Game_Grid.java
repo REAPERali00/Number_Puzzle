@@ -2,6 +2,7 @@ package client;
 
 import java.util.ArrayList;
 
+import Models.AppState;
 import Models.Ranking;
 import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
@@ -38,6 +39,9 @@ public class Game_Grid {
         dim = 3;
         fillGrid();
         randomize();
+        if (rank == null) {
+            setUserName(AppState.getInstance().getUserName());
+        }
     }
 
     private Button createButton(int number) {
