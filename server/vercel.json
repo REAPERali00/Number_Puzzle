@@ -1,7 +1,19 @@
 {
- "version": 2,
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.js",
+      "use": "@vercel/node"
+    }
+  ],
   "routes": [
-    { "src": "/numpuz/.*", "dest": "/index.js" },
-    { "src": "/(.*)", "dest": "/index.js" }
+    {
+      "src": "/numpuz/(.*)",
+      "dest": "/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.js"
+    }
   ]
 }
