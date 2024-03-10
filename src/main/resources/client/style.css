@@ -75,6 +75,17 @@
   -fx-text-fill: black;
   -fx-padding: 10px;
   -fx-background-radius: 10px;
+  -fx-border-color: #000000;
+  -fx-border-width: 1px;
+  -fx-border-radius: 10;
+}
+
+.ranking-button:hover {
+  -fx-background-color: #479ef5;
+}
+
+.ranking-button:pressed {
+  -fx-background-color: #377ec4;
 }
 
 .reset-button {
@@ -84,6 +95,17 @@
   -fx-padding: 10px;
   -fx-background-radius: 10px;
   -fx-margin-top: 20px; /* Spacing from the grid */
+  -fx-border-color: #000000;
+  -fx-border-width: 1px;
+  -fx-border-radius: 10;
+}
+
+.reset-button:hover {
+  -fx-background-color: #ef3131;
+}
+
+.reset-button:pressed {
+  -fx-background-color: #9a2222;
 }
 
 .grid-container {

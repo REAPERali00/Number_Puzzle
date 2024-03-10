@@ -11,7 +11,7 @@
     stylesheets="@style.css" fx:controller="client.RankingDisplay">
     <top>
         <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
-            <Button text="Back" onAction="#goBack" />
+            <Button text="Back" onAction="#goBack" styleClass="ranking-button" />
         </HBox>
     </top>
     <center>
