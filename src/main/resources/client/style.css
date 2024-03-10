@@ -1,12 +1,5 @@
 /* Root of the file  */
 
-.root {
-  -fx-background-color: linear-gradient(
-    from 0% 0% to 100% 100%,
-    #87ceeb 0%,
-    #2b818d 100%
-  );
-}
 .background {
   -fx-background-color: linear-gradient(
     from 0% 0% to 100% 100%,

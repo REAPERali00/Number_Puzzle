@@ -7,17 +7,12 @@ import javafx.animation.PauseTransition;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import server_connection.Api;
 
@@ -151,12 +146,11 @@ public class Game_Grid {
     }
 
     public void showWinningMessage() {
-        Alert alert = new Alert(AlertType.INFORMATION);
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Congratulations");
-        alert.setHeaderText(null); // You can set header text or use null to not have a header
+        alert.setHeaderText(null);
         alert.setContentText("You've won the game!");
-
-        alert.showAndWait(); // Display the alert and wait for the user to close it
+        alert.showAndWait();
     }
 
     public void randomize() {
@@ -214,20 +208,6 @@ public class Game_Grid {
         api.postRanks(rank);
     }
 
-    // @FXML
-    // private void showRankings() {
-    // try {
-    // Parent root = FXMLLoader.load(getClass().getResource("ranking.fxml")); //
-    // Make sure the path is correct
-    // Scene scene = new Scene(root);
-    // Stage stage = (Stage) buttonsPane.getScene().getWindow(); // buttonsPane is
-    // from your puzzle.fxml
-    // stage.setScene(scene);
-    // stage.show();
-    // } catch (Exception e) {
-    // e.printStackTrace();
-    // }
-    // }
     @FXML
     private void showRankings() {
         App.getInstance().loadView("ranking.fxml");

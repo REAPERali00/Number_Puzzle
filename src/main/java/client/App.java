@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.function.Consumer;
 
 /**
  * JavaFX App
@@ -26,6 +27,26 @@ public class App extends Application {
         stage.setScene(page);
         stage.show();
         loadView("login.fxml");
+    }
+
+    public <T> void loadView(String fxml, Consumer<T> initializer) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+            Parent view = loader.load();
+            T controller = loader.getController();
+
+            view.getStylesheets().add(getClass().getResource("style.css").toExternalForm());
+            // Apply the background style class to the new view if necessary
+            view.getStyleClass().add("background");
+            // Apply initializer if not null
+            if (initializer != null) {
+                initializer.accept(controller);
+            }
+
+            rootLayout.getChildren().setAll(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void loadView(String fxml) {
