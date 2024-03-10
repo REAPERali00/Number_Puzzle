@@ -62,3 +62,32 @@
 .table-column-cell {
   -fx-alignment: CENTER;
 }
+
+.title-label {
+  -fx-font-size: 36px;
+  -fx-text-fill: #ffffff;
+  -fx-background-color: transparent;
+}
+
+.ranking-button {
+  -fx-font-size: 14px;
+  -fx-background-color: #76b7f9;
+  -fx-text-fill: black;
+  -fx-padding: 10px;
+  -fx-background-radius: 10px;
+}
+
+.reset-button {
+  -fx-font-size: 18px;
+  -fx-background-color: #ff6b6b;
+  -fx-text-fill: white;
+  -fx-padding: 10px;
+  -fx-background-radius: 10px;
+  -fx-margin-top: 20px; /* Spacing from the grid */
+}
+
+.grid-container {
+  -fx-padding: 20px;
+  -fx-hgap: 10px; /* horizontal gap between columns */
+  -fx-vgap: 10px; /* vertical gap between rows */
+}
