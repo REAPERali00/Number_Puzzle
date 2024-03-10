@@ -9,7 +9,7 @@ function readRank() {
     return JSON.parse(data);
   } catch (err) {
     console.log("couldn't read the ranking file: ", err);
-    return [];
+    return ["error reading file"];
   }
 }
 
