@@ -10,7 +10,7 @@ function readRank() {
   } catch (err) {
     console.log("couldn't read the ranking file: ", err);
     // return [];
-    return [err];
+    return [];
   }
 }
 

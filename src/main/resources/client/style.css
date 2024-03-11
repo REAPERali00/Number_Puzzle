@@ -113,3 +113,8 @@
   -fx-hgap: 10px; /* horizontal gap between columns */
   -fx-vgap: 10px; /* vertical gap between rows */
 }
+.user-name {
+  -fx-font-size: 20px;
+  -fx-padding: 10px;
+  -fx-text-fill: #114374;
+}
