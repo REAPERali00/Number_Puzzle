@@ -92,5 +92,5 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
-server/controller/ranks.json
+server/resources/ranks.json
 *.env
