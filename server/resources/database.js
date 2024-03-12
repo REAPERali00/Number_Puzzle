@@ -31,13 +31,36 @@ class MongoBackend {
     return await this.collection.find({}).toArray();
   }
 
+  // async addOrUpdateRanking(name, time) {
+  //   const result = await this.collection.updateOne(
+  //     { name: name },
+  //     { $set: { time: time } },
+  //     { upsert: true }
+  //   );
+  //   return result;
+  // }
+
   async addOrUpdateRanking(name, time) {
-    const result = await this.collection.updateOne(
-      { name: name },
-      { $set: { time: time } },
-      { upsert: true }
-    );
-    return result;
+    // Find the current record
+    const currentRank = await this.collection.findOne({ name: name });
+
+    // If record exists, compare times
+    if (currentRank && this.isNewTimeSmaller(currentRank.time, time)) {
+      // Update if new time is smaller
+      const result = await this.collection.updateOne(
+        { name: name },
+        { $set: { time: time } }
+      );
+      return result;
+    } else if (!currentRank) {
+      // Insert new record if not found
+      return await this.collection.insertOne({ name, time });
+    }
+  }
+
+  // Helper method to compare times
+  isNewTimeSmaller(currentTime, newTime) {
+    return newTime < currentTime;
   }
 }
 
