@@ -14,7 +14,7 @@ class MongoBackend {
     await this.client.connect();
     console.log("Connected to MongoDB");
     this.db = this.client.db(this.dbName);
-    this.collection = this.db.collection("rankings");
+    this.collection = this.db.collection("ranking");
   }
 
   async disconnect() {
@@ -30,20 +30,15 @@ class MongoBackend {
   async getRankings() {
     return await this.collection.find({}).toArray();
   }
+
+  async addOrUpdateRanking(name, time) {
+    const result = await this.collection.updateOne(
+      { name: name },
+      { $set: { time: time } },
+      { upsert: true }
+    );
+    return result;
+  }
 }
 
-// Use the class
-(async () => {
-  const mongoBackend = new MongoBackend("your-mongo-uri", "your-db-name");
-
-  try {
-    await mongoBackend.connect();
-    await mongoBackend.insertRanking("John Doe", "00:02:34");
-    const rankings = await mongoBackend.getRankings();
-    console.log(rankings);
-  } catch (e) {
-    console.error(e);
-  } finally {
-    await mongoBackend.disconnect();
-  }
-})();
+module.exports = MongoBackend;
