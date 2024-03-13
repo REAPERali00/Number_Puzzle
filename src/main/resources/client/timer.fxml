@@ -10,9 +10,7 @@
    fx:controller="client.Game_Timer">
    <children>
       <Label fx:id="timerLabel" alignment="CENTER" text="Timer: 0" styleClass="timer">
-         <!-- <font>
-            <Font name="Calibri" size="27.0" />
-         </font> -->
+
       </Label>
    </children>
 </FlowPane>

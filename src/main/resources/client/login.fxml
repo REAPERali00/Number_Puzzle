@@ -2,16 +2,22 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="client.Login" spacing="10"
-    alignment="CENTER">
+<VBox alignment="CENTER_LEFT" spacing="10" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21" fx:controller="client.Login">
     <padding>
-        <Insets top="20" right="20" bottom="20" left="20" />
+        <Insets bottom="20" left="20" right="20" top="20" />
     </padding>
-    <Label text="Enter your user name" styleClass="user-name" />
+    <Label styleClass="user-name" text="Enter your user name" />
     <TextField fx:id="nameField" promptText="Enter your name" />
-    <Button text="Submit" onAction="#handleSubmit" styleClass="ranking-button" />
+   <HBox prefHeight="0.0" prefWidth="200.0">
+      <children>
+         <Pane prefHeight="25.0" prefWidth="129.0" HBox.hgrow="ALWAYS" />
+          <Button contentDisplay="CENTER" onAction="#handleSubmit" prefHeight="25.0" prefWidth="72.0" styleClass="ranking-button" text="Submit" />
+      </children>
+   </HBox>
 </VBox>

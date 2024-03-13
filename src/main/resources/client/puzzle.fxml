@@ -7,15 +7,18 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" prefHeight="451.0" prefWidth="393.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Game_Grid">
+<VBox alignment="TOP_CENTER" prefHeight="451.0" prefWidth="393.0" stylesheets="@style.css"
+  xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+  fx:controller="client.Game_Grid">
   <children>
-   <Label fx:id="welcomeLabel" styleClass="title-label" text="Num Puz" />
+    <Label fx:id="welcomeLabel" styleClass="title-label" text="Num Puz" />
     <HBox alignment="CENTER" spacing="10" style="-fx-padding: 10 40 10 40;">
-       <fx:include fx:id="timer" source="timer.fxml" translateX="30.0" />
+      <fx:include fx:id="timer" source="timer.fxml" translateX="30.0" />
       <Pane HBox.hgrow="ALWAYS" /> <!-- This pushes the following nodes to the right -->
       <Button onAction="#showRankings" styleClass="ranking-button" text="View Rankings" />
     </HBox>
-    <GridPane fx:id="buttonsPane" alignment="CENTER" prefHeight="407.0" prefWidth="393.0" styleClass="grid-container">
+    <GridPane fx:id="buttonsPane" alignment="CENTER" prefHeight="407.0" prefWidth="393.0"
+      styleClass="grid-container">
       <!-- Number buttons go here -->
     </GridPane>
     <Button onAction="#reset" styleClass="reset-button" text="Reset" />
