@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -6,35 +7,40 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Priority?>
 
-<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-    stylesheets="@style.css" fx:controller="client.RankingDisplay">
+<BorderPane stylesheets="@style.css" xmlns="http://javafx.com/javafx/21"
+    xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.RankingDisplay">
     <top>
-        <HBox spacing="10" alignment="CENTER_LEFT" style="-fx-padding: 10;">
-            <Button text="Back" onAction="#goBack" styleClass="ranking-button" />
+        <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-padding: 10;">
+            <Button onAction="#goBack" styleClass="ranking-button" text="Back" />
         </HBox>
     </top>
     <center>
-        <VBox spacing="10" alignment="CENTER">
-            <TableView fx:id="rankTableView" prefHeight="200" prefWidth="400">
+        <VBox alignment="CENTER" spacing="10" VBox.vgrow="ALWAYS">
+            <TableView fx:id="rankTableView" VBox.vgrow="ALWAYS" maxHeight="Infinity"
+                prefWidth="400">
                 <columns>
-                    <TableColumn fx:id="rankColumn" text="Rank" prefWidth="100">
+                    <TableColumn fx:id="rankColumn" prefWidth="100" text="Rank">
                         <cellValueFactory>
                             <PropertyValueFactory property="rank" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="usernameColumn" text="Username" prefWidth="150">
+                    <TableColumn fx:id="usernameColumn" prefWidth="150" text="Username">
                         <cellValueFactory>
                             <PropertyValueFactory property="username" />
                         </cellValueFactory>
                     </TableColumn>
-                    <TableColumn fx:id="timeColumn" text="Time" prefWidth="150">
+                    <TableColumn fx:id="timeColumn" prefWidth="150" text="Time">
                         <cellValueFactory>
                             <PropertyValueFactory property="time" />
                         </cellValueFactory>
                     </TableColumn>
                 </columns>
             </TableView>
+            <padding>
+                <Insets left="10.0" right="10.0" />
+            </padding>
         </VBox>
     </center>
 </BorderPane>
