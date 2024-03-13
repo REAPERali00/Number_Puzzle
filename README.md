@@ -6,17 +6,17 @@
 <div align="center">
   <!-- You can add a project logo within the images folder -->
   <a href="https://github.com/your_github_username/num-puz">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="./readme_assests/logo.webp" alt="Logo" width="100" height="100">
   </a>
 
   <h3 align="center">Num Puz Game</h3>
 
   <p align="center">
-    A thrilling puzzle game built with JavaFX and powered by a Node.js server with MongoDB, hosted on Vercel.
+    A fun puzzle game built with JavaFX and powered by a Node.js server with MongoDB, hosted on Vercel.
     <br />
 <!-- <a href="https://github.com/your_github_username/num-puz"><strong>Explore the Docs »</strong></a> -->
     <br />
-    <a href="https://github.com/your_github_username/num-puz">View Demo</a>
+    <a href="./Executable_file/">View Demo</a>
     ·
     <a href="https://github.com/your_github_username/num-puz/issues">Report Bug</a>
     ·
@@ -60,6 +60,7 @@ To get a local copy up and running follow these simple steps.
 
 - Java installed for the game
 - Node.js installed for server setup
+- Java FX SDK is installed
 
 ### Installation
 
