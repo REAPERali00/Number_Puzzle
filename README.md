@@ -18,9 +18,9 @@
     <br />
     <a href="./Executable_file/">View Demo</a>
     ·
-    <a href="https://github.com/your_github_username/num-puz/issues">Report Bug</a>
+    <a href="https://github.com/REAPERali00/Number_Puzzle/issues">Report Bug</a>
     ·
-    <a href="https://github.com/your_github_username/num-puz/issues">Request Feature</a>
+    <a href="https://github.com/REAPERali00/Number_Puzzle/issues">Request Feature</a>
   </p>
 </div>
 
