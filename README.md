@@ -6,7 +6,7 @@
 <div align="center">
   <!-- You can add a project logo within the images folder -->
   <a href="https://github.com/your_github_username/num-puz">
-    <img src="./readme_assests/logo.webp" alt="Logo" width="100" height="100">
+    <img src="./readme_assests/logo.webp" alt="Logo" width="300" height="250">
   </a>
 
   <h3 align="center">Num Puz Game</h3>
