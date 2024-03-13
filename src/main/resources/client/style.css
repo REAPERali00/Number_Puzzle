@@ -3,8 +3,8 @@
 .background {
   -fx-background-color: linear-gradient(
     from 0% 0% to 100% 100%,
-    #87ceeb 0%,
-    #2b818d 100%
+    #2b818d 0%,
+    #08393f 100%
   );
 }
 
@@ -65,7 +65,7 @@
 
 .title-label {
   -fx-font-size: 36px;
-  -fx-text-fill: #ffffff;
+  -fx-text-fill: #b7d5f3;
   -fx-background-color: transparent;
 }
 
@@ -113,8 +113,15 @@
   -fx-hgap: 10px; /* horizontal gap between columns */
   -fx-vgap: 10px; /* vertical gap between rows */
 }
+
 .user-name {
   -fx-font-size: 20px;
   -fx-padding: 10px;
-  -fx-text-fill: #114374;
+  -fx-text-fill: #b7d5f3;
+}
+
+.timer {
+  -fx-font-size: 27px;
+  -fx-font-family: "Calibri";
+  -fx-text-fill: #b7d5f3;
 }

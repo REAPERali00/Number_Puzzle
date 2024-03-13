@@ -4,11 +4,15 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.text.Font?>
 
-<FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="20.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.Game_Timer">
+<FlowPane alignment="CENTER" columnHalignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity"
+   minHeight="-Infinity" minWidth="-Infinity" prefHeight="10.0" prefWidth="20.0"
+   xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="client.Game_Timer">
    <children>
-      <Label fx:id="timerLabel" alignment="CENTER" text="Timer: 0">
-         <font>
+      <Label fx:id="timerLabel" alignment="CENTER" text="Timer: 0" styleClass="timer">
+         <!-- <font>
             <Font name="Calibri" size="27.0" />
-         </font></Label>
+         </font> -->
+      </Label>
    </children>
 </FlowPane>

@@ -23,7 +23,7 @@ public class App extends Application {
         rootLayout = new StackPane();
         stage.setTitle("Num Puz");
         // Scene page = new Scene(loadFXML("puzzle"));
-        Scene page = new Scene(rootLayout, 400, 600);
+        Scene page = new Scene(rootLayout, 390, 560);
         stage.setScene(page);
         stage.show();
         loadView("login.fxml");
