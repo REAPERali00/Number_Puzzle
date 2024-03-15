@@ -16,7 +16,7 @@
     <br />
 <!-- <a href="https://github.com/your_github_username/num-puz"><strong>Explore the Docs »</strong></a> -->
     <br />
-    <a href="./Executable_file/">View Demo</a>
+    <a href="./Executable_file/">View Demo (In progress)</a>
     ·
     <a href="https://github.com/REAPERali00/Number_Puzzle/issues">Report Bug</a>
     ·
@@ -31,6 +31,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
     </li>
+    <li><a href="#demo">Demonstration</a></li>
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#prerequisites">Prerequisites</a></li>
     <li><a href="#installation">Installation</a></li>
@@ -43,7 +44,11 @@
 ## About The Project
 
 Num Puz is a desktop puzzle game developed with JavaFX. It interacts with a Node.js server and MongoDB database for real-time rankings, hosted on Vercel.
+### Demo
 
+![](readme_assests/login.png)
+![](readme_assests/game.png)
+![](readme_assests/ranking.png)
 ### Built With
 
 - JavaFX for the desktop application
