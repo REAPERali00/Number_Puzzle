@@ -49,6 +49,9 @@ Num Puz is a desktop puzzle game developed with JavaFX. It interacts with a Node
 ![](readme_assests/login.png)
 ![](readme_assests/game.png)
 ![](readme_assests/ranking.png)
+
+[NumPuz.webm](https://github.com/REAPERali00/Number_Puzzle/assets/120317445/75942701-6700-469b-8508-30ca722a7360)
+
 ### Built With
 
 - JavaFX for the desktop application
